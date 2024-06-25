@@ -1,0 +1,65 @@
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.title {
+  text-decoration: underline;
+  text-align: center;
+  text-transform: uppercase;
+  color: #282828;
+}
+
+ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+li {
+  background-color: black;
+  padding: 5px 15px;
+  color: white;
+  transition: all 1s;
+}
+
+li:hover {
+  transform: translateY(-10px);
+}
+
+/* Animation */
+.container {
+  height: 400px;
+  width: 400px;
+  background-color: greenyellow;
+  border: 1px solid green;
+  /* padding: 10px; */
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: move-all-around-the-border;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes move-all-around-the-border {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(300px, 0);
+  }
+  50% {
+    transform: translate(300px, 300px);
+  }
+  75% {
+    transform: translate(0px, 300px);
+  }
+}
