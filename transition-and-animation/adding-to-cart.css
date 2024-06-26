@@ -112,14 +112,20 @@ header:after {
     0.2
   ); /*scale also affects the positioning - watch video and see css of this animation video to understand reducing size by width/scale */
   animation: adding-to-cart 1s ease 0.1s forwards;
+  opacity: 0;
 }
 
 @keyframes adding-to-cart {
   0% {
     /* transform: translateX(0px) scale(0.2); multiple transform applies from right to left */
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
   }
   100% {
     /* transform: translateX(400px) scale(0.2); */
-    right: -40px;
+    right: -40px; /*as it's absolute, behavior can be controlled from here*/
+    opacity: 0;
   }
 }
