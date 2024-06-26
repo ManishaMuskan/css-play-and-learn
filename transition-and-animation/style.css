@@ -3,6 +3,7 @@ body {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   width: 80%;
   margin: 0 auto;
+  background-color: teal;
 }
 
 .title {
@@ -18,34 +19,88 @@ ul {
   list-style: none;
 }
 
-li {
+.menu li {
   background-color: black;
   padding: 5px 15px;
   color: white;
   transition: all 1s;
 }
 
-li:hover {
+.menu li:hover {
   transform: translateY(-10px);
 }
 
+.menu li a {
+  color: white;
+}
+
 /* Animation */
+.animation-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
 .container {
-  height: 400px;
-  width: 400px;
-  background-color: greenyellow;
-  border: 1px solid green;
-  /* padding: 10px; */
+  height: 300px;
+  width: 300px;
+  border: 2px solid white;
 }
 
 .box {
   width: 100px;
   height: 100px;
-  background-color: red;
+  background-color: white;
   animation-name: move-all-around-the-border;
   animation-duration: 4s;
   animation-delay: 1s;
   animation-iteration-count: infinite;
+}
+
+.container1 {
+  height: 300px;
+  width: 300px;
+  border: 2px solid white;
+  border-radius: 50%;
+  animation-name: orbit;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+.box1 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+ul.dots {
+  gap: 5px;
+}
+
+.dots li {
+  width: 10px;
+  height: 10px;
+  background-color: yellow;
+  border-radius: 50%;
+  animation: dance-up-down 1s ease infinite alternate;
+}
+
+.dots li:nth-child(2) {
+  animation-delay: 0.2s;
+  background-color: blue;
+}
+
+.dots li:nth-child(3) {
+  animation-delay: 0.4s;
+  background-color: red;
+}
+
+.dots li:nth-child(4) {
+  animation-delay: 0.6s;
+  background-color: lightgreen;
 }
 
 @keyframes move-all-around-the-border {
@@ -54,12 +109,32 @@ li:hover {
     transform: translate(0, 0);
   }
   25% {
-    transform: translate(300px, 0);
+    transform: translate(200px, 0);
   }
   50% {
-    transform: translate(300px, 300px);
+    transform: translate(200px, 200px);
   }
   75% {
-    transform: translate(0px, 300px);
+    transform: translate(0px, 200px);
+  }
+}
+
+@keyframes orbit {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dance-up-down {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(5px);
   }
 }

@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.sky {
+  background-color: #5ab8f4;
+  height: 33vh;
+  width: 100%;
+  position: relative;
+}
+
+.cloud {
+  width: 600px;
+  height: 200px;
+  position: absolute;
+  left: -800px;
+  background-image: url(./imgs/cloud.png);
+  background-position: 0 0;
+  background-size: cover;
+  animation: moving-cloud 20s linear infinite reverse;
+  filter: blur(30px);
+}
+
+.cloud:nth-child(1) {
+  opacity: 0.7;
+}
+
+.cloud:nth-child(2) {
+  top: 100px;
+  width: 400px;
+  height: 100px;
+  opacity: 0.8;
+  animation-duration: 18s;
+  animation-delay: 3s;
+}
+
+.cloud:nth-child(3) {
+  position: absolute;
+  top: 100px;
+  width: 100px;
+  height: 70px;
+  opacity: 0.7;
+  animation-duration: 15s;
+  animation-delay: 5s;
+}
+
+.cloud:nth-child(4) {
+  position: absolute;
+  top: 70px;
+  width: 250px;
+  height: 160px;
+  opacity: 0.7;
+  animation-duration: 25s;
+  animation-delay: 6s;
+}
+
+.cloud:nth-child(5) {
+  top: 100px;
+  width: 300px;
+  height: 100px;
+  opacity: 0.6;
+  animation-duration: 25s;
+  animation-delay: 6s;
+}
+
+.cloud:nth-child(6) {
+  top: 140px;
+  width: 400px;
+  height: 100px;
+  opacity: 0.7;
+  animation-duration: 30s;
+  animation-delay: 8s;
+}
+
+.grass {
+  height: 33vh;
+  width: 100%;
+  background-image: url(./imgs/3d-render-green-grass-blue-sky_1048-14154.avif);
+  background-position: 80% 80%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.road {
+  height: 33vh;
+  width: 100%;
+  background-color: dimgrey;
+  position: relative;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+}
+
+.divider-lines {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  border-top: 8px dashed whitesmoke;
+  width: 100%;
+}
+
+@keyframes moving-cloud {
+  0% {
+    transform: translateX(-800px);
+  }
+  100% {
+    transform: translateX(2500px);
+  }
+}
+
+.mario,
+.luigo {
+  transform: scale(0.6);
+  position: absolute;
+  z-index: 1;
+  left: -100px;
+}
+
+.mario {
+  top: -50px;
+  animation: drive 4s linear infinite both, jump 0.3s 1.5s 2; /*animation chaining*/
+}
+
+.luigo {
+  top: 30%;
+  animation-name: drive;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes drive {
+  0% {
+    transform: translateX(
+      -100px
+    ); /*replicate the initial state of the property that's going to change over animation*/
+  }
+  100% {
+    transform: translateX(1700px);
+  }
+}
+
+@keyframes jump {
+  0% {
+    top: -50px;
+  }
+  50% {
+    top: -100px;
+  }
+  100% {
+    top: -50px;
+  }
+}
